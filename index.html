@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>My Vue App</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+  
+  <!--ナビ-->
+  <div class="navi mt-１ d-flex align-items-center justify-content-center bg-light">
+    
+    <button id='navi1' class="btn btn-lg" disabled >CA｜RA </button>
+    <a v-for="(item) in itemsCA" id='menu' class="btn btn-warning ml-1 rounded-circle" href="<?=url?>/exec?name=inputStuff">{{ item }}</a>
+    <a id='menu' class="btn btn-info ml-1 rounded-circle" href="<?=url?>/exec?name=inputStuff">求職タスク登録</a>
+    <a v-for="(item) in itemsRA" id='menu' class="btn btn-warning ml-1 rounded-circle" href="<?=url?>/exec?name=inputStuff">{{ item }}</a>
+    
+    
+  </div>
+ 
+  <div class="alert alert-info bg-danger text-center mb-0 rounded-0 alert-dismissible fade show">
+    このデータは既に確定されています!　修正が必要な場合は「修正」ボタンを押し、修正してください。（再度確定するまでは、マッチング対象とはなりません。）<br>
+    確定のままデータを見る場合は、このまま使用するか「×」を押してください。
+    <button class="btn btn-dark mr-5"  data-dismiss="alert">修正</button>
+    <button class="close" data-dismiss="alert">
+      &times;
+    </button>
+  </div>
+
+  <!--メニュー-->
+  <div class="container ">
+        <h1 class="text-center font-weight-bold text-info my-4">求職タスク　登録</h1>
+  </div>
+
+  <div id="app" class="container">
+    
+    <span class="font-weight-bold text-danger h5">求職者情報</span>
+    <ul class = "border list-group-item mt-1">
+      <li class = "list-group mt-1">求職者名　　やまだ　太郎</li>
+      <li class = "list-group mt-1">求職者住所　東京都TEST区test１２３４</l mt-1i>
+    </ul>
+
+
+    <span class="text-left py-1 font-weight-bold text-danger h5">職種</span>
+    <ul class = "border list-group-item mt-1">
+      <li v-for="(todo) in todos" class = "list-group mt-1">
+        <span>{{ todo.title }}</span>
+      </li>
+    </ul>
+
+  </div>
+
+  <section class="py-2">
+    <div class="container">
+      <span class="font-weight-bold text-danger h5">職種毎タスク登録</span>
+      <ul class="nav nav-tabs mt-2 ">
+        <li class="nav-item"><a href="#job1" class="text-dark nav-link active" data-toggle="tab">セールスマネージャー</a></li>
+        <li class="nav-item"><a href="#job2" class="text-dark nav-link" data-toggle="tab">職種２</a></li>
+        <li class="nav-item"><a href="#job3" class="text-dark nav-link" data-toggle="tab">職種３</a></li>
+      </ul>
+      
+      <div id ="jobs" class="tab-content py-4">
+        <div id="job1" class="tab-pane active">
+          <section class="text-center">
+            <table class="table table-hover">
+              <thead class=bg-light>
+                <tr><th>タスク</th><th></th><th>タスクレベル設定</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr v-for="n in 15"><td>タスク {{n}}　XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</td>
+                  <td><button class="btn btn-outline-info" data-toggle="button" aria-pressed="false" autocomplete="off">　 知らない　 </button></td>
+                  <td><button class="btn btn-outline-info" data-toggle="button" aria-pressed="false" autocomplete="off">　知っている　</button></td>
+                  <td><button class="btn btn-outline-info" data-toggle="button" aria-pressed="false" autocomplete="off">よく知っている</button></td></tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+
+        <div id="job2" class="tab-pane">
+          <section class="text-center">
+            <table class="table table-hover">
+              <thead class=bg-light>
+                <tr><th>タスク</th><th></th><th>タスクレベル設定</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr v-for="n in 10"><td>タスク {{n}}　YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY</td>
+                  <td><button class="btn btn-outline-info" data-toggle="button" aria-pressed="false" autocomplete="off">　 知らない　 </button></td>
+                  <td><button class="btn btn-outline-info" data-toggle="button" aria-pressed="false" autocomplete="off">　知っている　</button></td>
+                  <td><button class="btn btn-outline-info" data-toggle="button" aria-pressed="false" autocomplete="off">よく知っている</button></td></tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+
+        
+        <div id="job3" class="tab-pane">
+          <section class="text-center">
+            <table class="table table-hover">
+              <thead class=bg-light>
+                <tr><th>タスク</th><th></th><th>タスクレベル設定</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr v-for="n in 12"><td>タスク {{n}}　ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ</td>
+                  <td><button class="btn btn-outline-info" data-toggle="button" aria-pressed="false" autocomplete="off">　 知らない　 </button></td>
+                  <td><button class="btn btn-outline-info" data-toggle="button" aria-pressed="false" autocomplete="off">　知っている　</button></td>
+                  <td><button class="btn btn-outline-info" data-toggle="button" aria-pressed="false" autocomplete="off">よく知っている</button></td></tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-light text-center py-5">
+    <a href="" class="btn btn-primary btn-lg">キャンセル</a>
+    <a href="" class="btn btn-primary btn-lg ml-4 mr-4"> 　登録　 </a>
+    <a href="" class="btn btn-primary btn-lg"> 　確定　 </a>
+  </section>
+
+  <footer class="text-right text-muted py-4">
+  Copyright test mri 2020
+  </footer>
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
